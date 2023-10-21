@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Лабораторная работа 3</title>
+	<script>
+		function result(){
+var ipAddress=document.forms["frm"].elements["IP"].value;
+var ipv4 = /^(\d{1,3}\.){3}\d{1,3}$/;
+var ipv6 = /^(?:[A-F0-9]{1,4}:){7}[A-F0-9]{1,4}$/i;
+
+if (ipv4.test(ipAddress)) {
+  document.write(`IP-адрес ${ipAddress} -относится к версии IPv4`);
+} else if (ipv6.test(ipAddress)) {
+  document.write(`IP-адрес ${ipAddress} -относится к версии IPv6.`);
+} else {
+ document.write(`IP-адрес ${ipAddress} не является ни IPv4, ни IPv6.`);
+}
+		}
+	</script>
+</head>
+<body>
+<form id="frm">
+		<label for="IP">Введите свой IP:</label>
+		<input type="text" id="IP">
+		<input type="button" onclick="result()" value="Отправить">
+	</form>
+</body>
+</html>
